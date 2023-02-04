@@ -182,6 +182,7 @@
     <string name="recent_activity_view">查看近期活动</string>
     <string name="recent_activity_title">近期活动</string>
     <string name="action_help">帮助</string>
+    <string name="action_search">搜索</string>
 
 
     <!-- Recent Activity -->

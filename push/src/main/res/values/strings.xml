@@ -203,6 +203,7 @@ Please grant the <b>Run in the background or wake up</b> permissions.
 
     <!-- Update -->
     <string name="action_help">Help</string>
+    <string name="action_search">Search</string>
     <string name="action_update">Check for update</string>
     <string name="update_toast">You can downloads the latest APKs from the Releases page.</string>
 

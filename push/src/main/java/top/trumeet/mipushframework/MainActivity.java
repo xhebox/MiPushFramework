@@ -121,5 +121,4 @@ public abstract class MainActivity extends AppCompatActivity {
         }
         super.onDestroy();
     }
-
 }
