@@ -1,6 +1,7 @@
 // 控制器和服务程序共享的 Common Lib
-
-apply plugin: 'com.android.library'
+plugins {
+    id 'com.android.library'
+}
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion

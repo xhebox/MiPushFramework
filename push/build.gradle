@@ -1,11 +1,6 @@
-apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android'
-
-allprojects {
-    repositories {
-        mavenCentral()
-        maven { url 'https://jitpack.io' }
-    }
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
 }
 
 android {
@@ -89,18 +84,8 @@ android {
     namespace 'com.xiaomi.xmsf'
 }
 
-android.applicationVariants.all { variant ->
-    String taskName = String.format("remove%sStubClasses", variant.name.capitalize())
-    task "${taskName}" {
-        doLast { delete "${buildDir}/intermediates/classes/${variant.name}" + "/android" }
-    }
-    variant.getProcessJavaResourcesProvider().get().dependsOn(taskName)
-}
-
 dependencies {
-
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     // Log
     implementation('com.elvishew:xlog:1.6.1', {
         exclude group: 'com.android.support'
@@ -146,7 +131,5 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.10'
 
     // https://mvnrepository.com/artifact/com.github.promeg/tinypinyin
-    implementation 'com.github.promeg:tinypinyin:2.0.3'
-
-
+    implementation 'com.github.promeg:tinypinyin:3.0.0'
 }
