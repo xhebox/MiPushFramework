@@ -90,16 +90,20 @@ public class PushServiceMain extends XMPushService {
 
     @Override
     public void onCreate() {
-        super.onCreate();
-        logger.d("Service started");
+        try {
+            super.onCreate();
+            logger.d("Service started");
 
-        startForeground();
-        if (SDK_INT > P) BackgroundActivityStartEnabler.initialize(this);
-        if (SDK_INT >= N) {
-            mNotificationRevival = new NotificationRevival(this, sbn -> sbn.getTag() == null);  // Only push notifications (tag == null)
-            mNotificationRevival.initialize();
+            startForeground();
+            if (SDK_INT > P) BackgroundActivityStartEnabler.initialize(this);
+            if (SDK_INT >= N) {
+                mNotificationRevival = new NotificationRevival(this, sbn -> sbn.getTag() == null);  // Only push notifications (tag == null)
+                mNotificationRevival.initialize();
+            }
+            sInstance = this;
+        } catch (UnsupportedOperationException e) {
+            if (!e.toString().contains("PackageManager.getPackageInstaller() is not yet supported")) throw e;
         }
-        sInstance = this;
     }
 
     @Override
