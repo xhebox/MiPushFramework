@@ -109,7 +109,7 @@ public class PushServiceMain extends XMPushService {
     @Override
     public void attachBaseContext(Context base) {
         logger.d("attachBaseContext");
-        super.attachBaseContext(CondomContext.wrap(base, TAG_CONDOM, XMOutbound.create(base,
+        super.attachBaseContext(CondomContext.wrap(XMOutbound.wrap(base), TAG_CONDOM, XMOutbound.create(base,
                 TAG)));
     }
 

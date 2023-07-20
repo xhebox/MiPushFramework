@@ -188,7 +188,7 @@ public class PushControllerUtils {
     }
 
     public static Context wrapContext(final Context context) {
-        return CondomContext.wrap(context, TAG_CONDOM, XMOutbound.create(context,
+        return CondomContext.wrap(XMOutbound.wrap(context), TAG_CONDOM, XMOutbound.create(context,
                 TAG_CONDOM));
     }
 }
